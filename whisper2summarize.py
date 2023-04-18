@@ -4,8 +4,6 @@ import whisper
 import openai
 import tqdm
 import sys, argparse
-from dotenv import load_dotenv
-
 
 def transcribe(audio,model_type):
     class _CustomProgressBar(tqdm.tqdm):
@@ -33,7 +31,7 @@ def transcribe(audio,model_type):
     return transcribed
 
 def gpt_process(transcript):
-    load_dotenv()
+
     openai.api_key = os.getenv('OPENAI_KEY')
     print("Processing Transcript with GPT...")
     n=1300
